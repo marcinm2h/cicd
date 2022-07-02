@@ -1,4 +1,4 @@
-name: Run tests
+name: CICD
 
 on:
   push:
@@ -20,10 +20,5 @@ jobs:
     - run: npm ci
     - run: npm test
     - run: npm run build
-    - name: Create pull request
-      uses: peter-evans/create-pull-request@v4.0.4
-      with:
-        branch: publish
-        commit-message: Update
-        assignees: marcinm2h
-        reviewers: marcinm2h
+    - run: git push –set-upstream origin publish
+
