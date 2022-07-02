@@ -9,17 +9,18 @@ jobs:
   Run-tests:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repo
-      uses: actions/checkout@v3
-    - name: Setup node
-      uses: actions/setup-node@v3
-      with:
-        node-version: 16
-        cache: npm
-        cache-dependency-path: package-lock.json
-    - run: npm ci
-    - run: npm test
-    - run: npm run build
-    - name: Publish
-      if: github.event.head_commit.message == '[publish]'
-      run: git push -f origin HEAD:publish
+    # - name: Checkout repo
+    #   uses: actions/checkout@v3
+    # - name: Setup node
+    #   uses: actions/setup-node@v3
+    #   with:
+    #     node-version: 16
+    #     cache: npm
+    #     cache-dependency-path: package-lock.json
+    # - run: npm ci
+    # - run: npm test
+    # - run: npm run build
+    - run: curl https://google.com
+    # - name: Publish
+    #   if: github.event.head_commit.message == '[publish]'
+    #   run: git push -f origin HEAD:publish
