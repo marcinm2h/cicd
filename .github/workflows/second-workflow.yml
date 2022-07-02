@@ -1,0 +1,7 @@
+name: GitHub Actions Second Workflow
+on: [push]
+jobs:
+  The-One-Job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🍏 This job's status is ${{ job.status }}."
