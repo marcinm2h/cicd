@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  Run-tests:
+  Deploy:
     runs-on: ubuntu-latest
     environment: production
     steps:
