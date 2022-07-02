@@ -20,5 +20,4 @@ jobs:
     - run: npm ci
     - run: npm test
     - run: npm run build
-    - run: git push –set-upstream origin publish
-
+    - run: git push origin HEAD:publish
