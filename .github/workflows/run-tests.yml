@@ -19,7 +19,7 @@ jobs:
         cache-dependency-path: package-lock.json
     - run: npm ci
     - run: npm test
-    - run: npm build
+    - run: npm run build
     - name: create pull request
       uses: peter-evans/create-pull-request@v4.0.4
       with:
