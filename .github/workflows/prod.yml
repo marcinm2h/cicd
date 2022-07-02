@@ -1,5 +1,7 @@
 name: Prod
 
+on: []
+
 jobs:
   Push-to-prod:
     runs-on: ubuntu-latest
