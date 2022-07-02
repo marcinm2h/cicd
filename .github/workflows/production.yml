@@ -1,0 +1,29 @@
+name: Production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Run-tests:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+    - name: Setup node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+        cache: npm
+        cache-dependency-path: package-lock.json
+    - run: npm ci
+    - run: npm test
+    - run: npm run build
+    - name: Publish on render.com
+      if: github.event.head_commit.message == '[publish]'
+      env:
+        RENDER_COM_DEPLOY_HOOK: ${{ secrets.RENDER_COM_DEPLOY_HOOK }}
+      run: curl $RENDER_COM_DEPLOY_HOOK
+
