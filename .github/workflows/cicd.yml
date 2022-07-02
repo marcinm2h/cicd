@@ -20,5 +20,6 @@ jobs:
     - run: npm ci
     - run: npm test
     - run: npm run build
-    # if commit.msg includes [publish]
-    - run: git push -f origin HEAD:publish
+    - name: Publish
+      if: github.event.head_commit.message == '[publish]'
+      run: git push -f origin HEAD:publish
