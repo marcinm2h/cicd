@@ -9,9 +9,9 @@ jobs:
   Run-tests:
     runs-on: ubuntu-latest
     steps:
-    - name: checkout repo
+    - name: Checkout repo
       uses: actions/checkout@v3
-    - name: setup node
+    - name: Setup node
       uses: actions/setup-node@v3
       with:
         node-version: 16
@@ -20,7 +20,7 @@ jobs:
     - run: npm ci
     - run: npm test
     - run: npm run build
-    - name: create pull request
+    - name: Create pull request
       uses: peter-evans/create-pull-request@v4.0.4
       with:
         branch: publish
