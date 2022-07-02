@@ -20,7 +20,10 @@ jobs:
     # - run: npm ci
     # - run: npm test
     # - run: npm run build
-    - run: curl https://google.com
+    - name: Publish on render.com
+        env:
+          RENDER_COM_DEPLOY_HOOK: ${{ secrets.RENDER_COM_DEPLOY_HOOK }}
+    - run: curl $RENDER_COM_DEPLOY_HOOK
     # - name: Publish
     #   if: github.event.head_commit.message == '[publish]'
     #   run: git push -f origin HEAD:publish
