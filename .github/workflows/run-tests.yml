@@ -24,3 +24,6 @@ jobs:
       uses: peter-evans/create-pull-request@v4.0.4
       with:
         branch: publish
+        commit-message: Update
+        assignees: marcinm2h
+        reviewers: marcinm2h
